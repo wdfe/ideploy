@@ -77,7 +77,25 @@ wdfe-build,是为了适应微店北京web前端团队构建部署工程化而开
      
      
      打开src/common/config/config.js，分别填写各项配置,具体如下：
-     
+         <pre><code>
+    export default {
+    type: 'mysql',
+    log_sql: true,
+    log_connect: true,
+    adapter: {
+        mysql: {
+            host: '127.0.0.1',
+            port: '',
+            database: 'wdfe_publish',
+            user: 'root',
+            password: '',
+            prefix: '',
+            encoding: 'utf8'
+        },
+    }
+	}
+	</code></pre>
+	
      <pre><code>
      
 export default {
