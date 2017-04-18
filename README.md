@@ -193,7 +193,7 @@ export default {
 
      
      黄色用户名按钮显示的是从上次部署上线到现在，都有谁提交了多少次commit（按钮内容是提交者id,右上角数字是提交次数），点击按钮弹出该成员从上次上线到本次上线间的提交历史，如下图所示：
- <img src="docs/imgs/commitlog.tiff" width=60%  />
+ <img src="docs/imgs/commitlog.png" width=60%  />
 
      
    点击某个文件右边的蓝色‘查看’按钮，会显示出该文件在本次提交的具体修改（绿色表示提交后版本，红色表示提交前版本），如下图所示：
