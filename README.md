@@ -78,26 +78,6 @@ wdfe-build,是为了适应微店北京web前端团队构建部署工程化而开
      
      打开src/common/config/config.js，分别填写各项配置,具体如下：
          <pre><code>
-    export default {
-    type: 'mysql',
-    log_sql: true,
-    log_connect: true,
-    adapter: {
-        mysql: {
-            host: '127.0.0.1',
-            port: '',
-            database: 'wdfe_publish',
-            user: 'root',
-            password: '',
-            prefix: '',
-            encoding: 'utf8'
-        },
-    }
-	}
-	</code></pre>
-	
-     <pre><code>
-     
 export default {
     cvsUser: 'myuser',//svn用户名
     cvsPass: 'mypass',//svn密码
@@ -107,9 +87,10 @@ export default {
     emailPass: 'xxxxx',//邮箱授权码(具体可以登录mail.qq.com->设置->账户->POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务->生成授权码获取)
     cvsDir: '/temp',//svn代码临时保存目录
     port: 80 //服务器端口，就是部署平台的web服务端口，
-};
-
+}
 	</code></pre>
+	
+
 	
 	如果是git项目请保证部署机器能直接有访问git的权限
    </p>
