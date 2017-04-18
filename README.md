@@ -79,14 +79,14 @@ wdfe-build,是为了适应微店北京web前端团队构建部署工程化而开
      打开src/common/config/config.js，分别填写各项配置,具体如下：
      <pre><code>
 export default {
-    cvsUser: 'myuser',//svn用户名
-    cvsPass: 'mypass',//svn密码
-    emailHost: 'smtp.qq.com',//通知邮箱地址,这里用qq邮箱作为参考
-    emailport: 465,//端口
-    emailUser: '3333@qq.com',//邮箱账号
-    emailPass: 'xxxxx',//邮箱授权码(具体可以登录mail.qq.com->设置->账户->POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务->生成授权码获取)
-    cvsDir: '/temp',//svn代码临时保存目录
-    port: 80 //服务器端口，就是部署平台的web服务端口，
+    cvsUser: 'myuser',  svn用户名
+    cvsPass: 'mypass',  svn密码
+    emailHost: 'smtp.qq.com',通知邮箱地址,这里用qq邮箱作为参考
+    emailport: 465,端口
+    emailUser: '3333@qq.com',邮箱账号
+    emailPass: 'xxxxx',邮箱授权码(具体可以登录mail.qq.com->设置->账户->POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务->生成授权码获取)
+    cvsDir: '/temp',svn代码临时保存目录
+    port: 80 服务器端口，就是部署平台的web服务端口，
 };
 	</code></pre>
 	如果是git项目请保证部署机器能直接有访问git的权限
@@ -117,7 +117,9 @@ export default {
 	http://localhost
 	
 	页面自动跳到登录注册页面，说明启动成功：
-	<img src="docs/imgs/login.png" width=60%  />
+	
+<img src="docs/imgs/login.png" width=60%  />
+
 9. 导入数据库脚本，生成数据库基础表结构
    这一步主要是为系统运行创建需要的数据库表，为了方便大家使用，项目提供了一个web程序来建立表结构，直接输入:http://localhost/install,会出现如下界面，点击‘确定导入数据库表’生成数据库。
    
