@@ -1,0 +1,121 @@
+.image{
+  height: 63px;
+  display: block;
+  position: relative;
+  background-color: rgba(0,0,0,.05);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: .2em;
+}
+
+.item>.image>img {
+    display: block;
+    width: 63px;
+    height: 63px;
+    margin: 0 auto;
+}
+.item{
+    height: 63px;
+}
+
+.ui.corner.label {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    margin: 0;
+    width: 3em;
+    height: 3em;
+    padding: 0;
+    text-align: center;
+    -webkit-transition: color .2s ease;
+    -moz-transition: color .2s ease;
+    transition: color .2s ease;
+}
+.ui.label:last-child {
+    margin-right: 0;
+}
+a.ui.label {
+    cursor: pointer;
+}
+.ui.label {
+    font-size: .8125rem;
+}
+.ui.label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -.25em .25em 0;
+    background-color: #E8E8E8;
+    border-color: #E8E8E8;
+    padding: .5em .8em;
+    color: rgba(0,0,0,.65);
+    text-transform: uppercase;
+    font-weight: 400;
+    border-radius: .325em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: background .1s linear;
+    -moz-transition: background .1s linear;
+    transition: background .1s linear;
+}
+
+.item {
+    min-height: 140px;
+    padding-bottom: 0;
+}
+.item:nth-child(4n+1) {
+    clear: left;
+}
+.item {
+    min-width: 140px;
+    margin-left: .5%;
+    margin-right: .5%;
+}
+.item, .item>.content{
+    margin-top: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.item {
+    display: block;
+    float: left;
+    position: relative;
+    top: 0;
+    margin: 0 .5em 2.5em;
+    background-color: #FFF;
+    line-height: 1.2;
+    font-size: 1em;
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+    border-bottom: .2em solid rgba(0,0,0,.2);
+    border-radius: .33em;
+    -webkit-transition: -webkit-box-shadow .2s ease;
+    -moz-transition: box-shadow .2s ease;
+    transition: box-shadow .2s ease;
+    padding: .5em;
+}
+
+.item>.content>.name {
+    text-align: center;
+    font-size: 18px;
+}
+.item>.content>.name {
+    display: block;
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-bottom: .2em;
+    color: rgba(0,0,0,.7);
+}
+
+.item>.content>.description {
+    clear: both;
+    margin: 0;
+    color: rgba(0,0,0,.45);
+}

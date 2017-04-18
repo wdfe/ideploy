@@ -1,0 +1,62 @@
+table {
+    width: 100%;
+    font-family: "Menlo", "Liberation Mono", "Consolas", "DejaVu Sans Mono", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    border-collapse: collapse;
+    border: 1px solid #e5e5e5;
+    font-size: 13px;
+    color: #333;
+}
+.old_line, .new_line, .diff_line {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: whitesmoke;
+    color: rgba(0,0,0,0.3)!important;
+    padding: 0px 5px;
+    border-right: 1px solid #e5e5e5;
+    text-align: right;
+    min-width: 35px;
+    max-width: 50px;
+    width: 35px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.unfold {
+    cursor: pointer;
+}
+td {
+    line-height: 1.5;
+    font-size: 13px;
+}
+.matched {
+    color: #e5e5e5;
+    background: #fafafa;
+}
+.line_content {
+    display: block;
+    margin: 0px;
+    padding: 0px 0.5em;
+    border: none;
+    max-width: 900px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+.old {
+  background: #ffecec;
+}
+.old .old_line, .old .new_line {
+    background: #ffdddd;
+    border-color: #f1c0c0;
+}
+.new .old_line, .new .new_line {
+    background: #dbffdb;
+    border-color: #c1e9c1;
+}
+.new {
+    background: #eaffea;
+}

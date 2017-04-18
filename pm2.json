@@ -1,0 +1,16 @@
+{
+  "apps": [{
+    "name": "wdfe-build2",
+    "script": "www/production.js",
+    "cwd": "/Users/shaokaiming/Playground//Users/shaokaiming/Playground/wdfe-build2",
+    "exec_mode": "cluster",
+    "instances": 0,
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}

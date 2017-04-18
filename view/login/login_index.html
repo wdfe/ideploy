@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <title>H5发布系统</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/semantic.min.css">
+</head>
+
+<body>
+<div class="ui fixed transparent inverted main menu">
+    <div class="container">
+        <div class="left item">
+            <a class="launch item" href="/">H5发布平台</a>
+        </div>
+    </div>
+    <div class="right menu">
+        <div class="title item t_reg_button">注册</div>
+        <div class="title item"></div>
+    </div>
+</div>
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+            <!--<p>Suggestions for Javascript development practices</p>-->
+        </div>
+    </div>
+</div>
+
+<div class="main container" id="t_page">
+
+    <div class="ui form segment">
+        <div class="field">
+            <label>用户名</label>
+            <div class="ui left labeled icon input">
+                <input type="text" placeholder="用户名" name="user" id="user">
+                <i class="user icon"></i>
+                <div class="ui corner label">
+                    <i class="icon asterisk"></i>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>密码</label>
+            <div class="ui left labeled icon input">
+                <input type="password" name="pass" id="pass" placeholder="密码">
+                <input type="hidden" name="redirect_url" id="redirect_url" value="<%= data.redirect_url%>">
+                <i class="lock icon"></i>
+                <div class="ui corner label">
+                    <i class="icon asterisk"></i>
+                </div>
+            </div>
+        </div>
+        <div  class="ui <%if(data.msg==''){%> error <%}%> message">
+            <div class="header"><%=data.msg%></div>
+        </div>
+        <div class="ui blue submit button center t_pro_item">登录</div>
+        <div class="ui blue submit button t_reg_button">注册</div>
+    </div>
+</div>
+
+<div class="ui large modal transition" id="t_reg_modal" style="margin-top: -112px;">
+    <i class="close icon"></i>
+    <div class="header">
+        注册
+    </div>
+    <div class="content">
+        <div class="ui form segment">
+            <div class="field">
+                <label>用户id</label>
+                <div class="ui left labeled icon input">
+                    <input type="text"  id="reg_user" placeholder="用户id">
+                    <i class="lock icon"></i>
+                    <div class="ui corner label">
+                        <i class="icon asterisk"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>密码</label>
+                <div class="ui left labeled icon input">
+                    <input type="password"  id="reg_pass" placeholder="密码">
+                    <i class="lock icon"></i>
+                    <div class="ui corner label">
+                        <i class="icon asterisk"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>重复输入密码</label>
+                <div class="ui left labeled icon input">
+                    <input type="password"  id="re_reg_pass" placeholder="重复输入密码">
+                    <i class="lock icon"></i>
+                    <div class="ui corner label">
+                        <i class="icon asterisk"></i>
+                    </div>
+                </div>
+            </div>
+            <div  class="ui  error  message" id="reg_msg">
+                <div class="header " id="reg_msg_error"></div>
+            </div>
+            <div class="ui blue submit button center t_reg">确定</div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script src="/js/mods/jquery-2.1.1.min.js"></script>
+<script src="/js/mods/semantic.min.js"></script>
+<script src="/js/mods/waypoints.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).keydown(function(e){
+            if(e.which == 13){
+                $('.t_pro_item').trigger('click');
+            }
+        })
+        $('.t_pro_item').on('click', function() {
+            var user=$('#user').val();
+            var pass=$('#pass').val();
+            var redirect_url=$('#redirect_url').val();
+                $.ajax({
+                    type:'POST',
+                    url:'/login',
+                    data:{
+                        user:user,
+                        pass:pass,
+                        redirect_url:encodeURIComponent(redirect_url)
+                    },
+                    success:function(ret){
+                        if(ret.status==1){
+                            if(ret.redirect_url == '/'){
+                                window.location.href = './';
+                            }else{
+                                window.location.href=decodeURIComponent(ret.redirect_url);
+                            }
+                        }else{
+                            alert(ret.error||'error');
+                        }
+                    }
+                });
+           // window.location.href='login?user='+user+'&pass='+pass+'&redirect_url='+encodeURIComponent(redirect_url);
+        });
+        $('.t_reg_button').on('click', function() {
+            $('#t_reg_modal').modal('show');
+        });
+        $('.t_reg').on('click', function() {
+            var reg_user=$('#reg_user').val();
+            var reg_pass=$('#reg_pass').val();
+            var reg_repass=$('#re_reg_pass').val();
+            if(!reg_user||reg_user==null||!reg_pass||reg_pass==null||!reg_repass||reg_repass==null){
+                $('#reg_msg').removeClass('error');
+                $('#reg_msg_error').html("请输入用户名，密码，重复密码等必填项！");
+                return;
+            }
+            else if(reg_pass!=reg_pass){
+                $('#reg_msg').removeClass('error');
+                $('#reg_msg_error').html("密码，重复密码必须相等");
+                return;
+            }
+            else{
+                $('#reg_msg').addClass('error');
+
+            }
+
+            $.ajax({
+                url: '/reg?user=' + reg_user + '&pass=' + reg_pass,
+                success: function(data) {
+                    //注册错误
+                    if(data.status==-1){
+                        $('#reg_msg').removeClass('error');
+                        $('#reg_msg_error').html(data.data.msg);
+                    }
+                    //注册成功
+                    else{
+                        $('#t_reg_modal').modal('hide');
+                        alert('注册成功');
+                    }
+                },
+                error: function() {
+                }
+            })
+
+        });
+
+
+    });
+</script>
+</body>
+</html>
