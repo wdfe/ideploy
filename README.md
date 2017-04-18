@@ -124,7 +124,11 @@ export default {
 <img src="docs/imgs/login.png" width=60%  />
 
 9. 导入数据库脚本，生成数据库基础表结构
-   这一步主要是为系统运行创建需要的数据库表，为了方便大家使用，项目提供了一个web程序来建立表结构，直接输入:http://localhost/install,会出现如下界面，点击‘确定导入数据库表’生成数据库。
+   这一步主要是为系统运行创建需要的数据库表，为了方便大家使用，项目提供了一个web程序来建立表结构，直接输入:
+  
+   http://localhost/install
+   
+会出现如下界面，点击‘确定导入数据库表’生成数据库。
    
    <img src="docs/imgs/createdb.png" width=60%  />
 
