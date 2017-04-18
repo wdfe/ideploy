@@ -121,7 +121,7 @@ export default {
 9. 导入数据库脚本，生成数据库基础表结构
    这一步主要是为系统运行创建需要的数据库表，为了方便大家使用，项目提供了一个web程序来建立表结构，直接输入:http://localhost/install,会出现如下界面，点击‘确定导入数据库表’生成数据库。
    
-   <img src="docs/imgs/createdb.tiff" width=60%  />
+   <img src="docs/imgs/createdb.png" width=60%  />
 
    
    当然，也可以通过mysql 直接倒入数据库表结构文件，数据库表文件是db/db.sql
@@ -137,20 +137,20 @@ export default {
 2. 填写项目信息
    登录进入主界面，我们点击左边菜单的新建工程填写工程基本信息,如下所示：
    
-    <img src="docs/imgs/newproject.tiff" width=60%  />
+    <img src="docs/imgs/newproject.png" width=60%  />
   
     
     分别填写项目名称，代码仓库类型，项目语言，代码仓库地址，后面的构建hook,部署hook,hook参数可以先不填（这部分会在高级功能里面详细描述）
 3. 填写部署目标机器
    填写完项目信息，点击左边工程列表菜单进入，工程列表页，点击刚才新建的项目进入项目主页：
    
-       <img src="docs/imgs/project_info.tiff" width=60%  />
+       <img src="docs/imgs/project_info.png" width=60%  />
   
    
    点击机器列表页进入机器列，点击右上角新建机器，进入新建机器页面，页面如下：
-          <img src="docs/imgs/newmachine1.tiff" width=60%  />
-          <img src="docs/imgs/newmachine2.tiff" width=60%  />
-          <img src="docs/imgs/newmachine3.tiff" width=60%  />
+          <img src="docs/imgs/newmachine1.png" width=60%  />
+          <img src="docs/imgs/newmachine2.png" width=60%  />
+          <img src="docs/imgs/newmachine3.png" width=60%  />
                                        
    
    
@@ -189,7 +189,7 @@ export default {
     1.将本次要部署代码从代码仓库部署到部署机器
     2.判断是否有过上线部署如果有则，则拉取上次部署代码tag，进行比较，列出本次部署跟上次线上部署的新增文件，修改文件未修改文件，并根据提交人显示从上次上线正式环境到本次部署的提交历史，如下图所示：
     
-<img src="docs/imgs/checkout.tiff" width=60%  />
+<img src="docs/imgs/checkout.png" width=60%  />
 
      
      黄色用户名按钮显示的是从上次部署上线到现在，都有谁提交了多少次commit（按钮内容是提交者id,右上角数字是提交次数），点击按钮弹出该成员从上次上线到本次上线间的提交历史，如下图所示：
@@ -198,44 +198,44 @@ export default {
      
    点击某个文件右边的蓝色‘查看’按钮，会显示出该文件在本次提交的具体修改（绿色表示提交后版本，红色表示提交前版本），如下图所示：
    
-  <img src="docs/imgs/commitdiff.tiff" width=60%  />
+  <img src="docs/imgs/commitdiff.png" width=60%  />
    
 
    
    除了列出每个成员的commit历史，并提供查看每次修改的记录以外，系统还提供了从上次正式上线到本次上线间文件的变化总览和明细，提供了新增，修改，未修改3个tab来显示文件变化情况（tab右上角的数字表示新增，修改，未修改的数字）。底部的文件列表列出了具体文件，对于修改的文件，点击‘查看差异’按钮可以显示具体修改了文件的那些地方，如下图所示：
    
-<img src="docs/imgs/modifydiff.tiff" width=60%  />
+<img src="docs/imgs/modifydiff.png" width=60%  />
      
  
    
    检查检出步骤的各种输出，都没问题后就可以进行构建打包了。由于部署系统支持部分文件上线的功能。如果需要部分文件上线，需要从检查结果列表里面点击选择要上线的文件，并选择是通过只上线选择文件还是上线除被选择文件以外的文件的方式来实现部署上线，如下图所示：
 
-<img src="docs/imgs/incdeploy.tiff" width=60%  />
+<img src="docs/imgs/incdeploy.png" width=60%  />
    
 
      
    到这里我们可以开始对项目进行构建打包了，你可以通过选择指定机器部署构建来执行构建（执行在填写部署机器时填写的构建命令进行构建），也可以通过自定义构建命令来进行构建（填写的命令会在跟目录下直接执行）,如果是js项目，为了减少npm install的时间，第一次请选择是否跟新node_modules,后面如果构建依赖没有变化，则可以不选择，界面如下图：
    
-<img src="docs/imgs/dobuild.tiff" width=60%  />
+<img src="docs/imgs/dobuild.png" width=60%  />
    
     
    点击‘构建’按钮执行构建，构建命令输出可以在‘后台日志’里看到，查看输出日志，看看是否构建成功，如下图所示：
  
-<img src="docs/imgs/buildlog.tiff" width=60%  />
+<img src="docs/imgs/buildlog.png" width=60%  />
      
    
  构建完成，还可以通过构建结果的按钮查看构建后的，如下2图所示：
- <img src="docs/imgs/buildresult.tiff" width=60%  />
+ <img src="docs/imgs/buildresult.png" width=60%  />
        
- <img src="docs/imgs/buildresult2.tiff" width=60%  />      
+ <img src="docs/imgs/buildresult2.png" width=60%  />      
       
    构建完成后，底部的部署按钮会由灰转量，这时候我们只要填写好部署说明和部署原因，点击部署就可以完成部署了（值得一提的是，可以选择一次部署多台机器），如下图所示：
    
- <img src="docs/imgs/dodeploy.tiff" width=60%  />      
+ <img src="docs/imgs/dodeploy.png" width=60%  />      
       
   	部署完成后，会弹出一个层，表示部署完成并且询问是否锁定部署机器，如果锁定则这个项目的这台机器不能再部署，只有本次部署的人解锁以后才可以继续部署:
   	
- <img src="docs/imgs/deploydone.tiff" width=60%  />      
+ <img src="docs/imgs/deploydone.png" width=60%  />      
  
   	另外从后台日志输出模块也可以实时看到部署过程，如果部署的事正式线上项目，那么系统还会自动给项目打tag留存
   	
@@ -256,9 +256,9 @@ export default {
 3.在添加机器时，构建命令我们填写mvn package(maven编译命令),部署前需要删除服务器上代码可以直接配置部署前命名删除，部署后需要重启则可以填写重启命令比如这个项目我们填写的如下信息:
 
 
- <img src="docs/imgs/java_macine1.tiff" width=60%  /> 
+ <img src="docs/imgs/java_macine1.png" width=60%  /> 
  
- <img src="docs/imgs/java_machine2.tiff" width=60%  />
+ <img src="docs/imgs/java_machine2.png" width=60%  />
 
 
 
@@ -288,8 +288,8 @@ export default {
 接着我们需要在添加机器的时候填写构建命令和重启命令，例子如下：
 
 
-<img src="docs/imgs/go_macine1.tiff" width=60%  />
-<img src="docs/imgs/go_machine1.tiff" width=60%  />
+<img src="docs/imgs/go_macine1.png" width=60%  />
+<img src="docs/imgs/go_machine1.png" width=60%  />
 
 
 添加完我们就可以走之前的构建部署流程进行部署了，部署完成输入：
