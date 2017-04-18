@@ -27,7 +27,7 @@ wdfe-build,是为了适应微店北京web前端团队构建部署工程化而开
 
 
 <span id="tech"></span>
-##技术栈
+## 技术栈
 
  1.  开发语言： [nodejs](http://nodejs.org/ "nodejs") 
  
@@ -40,7 +40,7 @@ wdfe-build,是为了适应微店北京web前端团队构建部署工程化而开
  5. 前端ui框架  [ant.design](https://ant.design) 
 
 <span id="quickstart"></span>
-##快速启动(只支持linux)
+## 快速启动(只支持linux)
 1. git clone xxxxx.git 代码到本地
 2. 安装nodejs 依赖:在根目录下运行npm install
 3. 安装ansible （依赖ansible做部署前后的命令行执行）
@@ -134,7 +134,7 @@ export default {
 	
 	
 <span id="firstpro"></span>
-##构建部署第一个项目
+## 构建部署第一个项目
 
 1. 注册系统用户
    第一次进入系统会直接跳到登录页，如果没有注册过则点击底部注册链接进行填写用户名密码进行注册，如果注册过则登录即可
@@ -197,7 +197,8 @@ export default {
 <img src="docs/imgs/checkout.png" width=60%  />
 
      
-     黄色用户名按钮显示的是从上次部署上线到现在，都有谁提交了多少次commit（按钮内容是提交者id,右上角数字是提交次数），点击按钮弹出该成员从上次上线到本次上线间的提交历史，如下图所示：
+黄色用户名按钮显示的是从上次部署上线到现在，都有谁提交了多少次commit（按钮内容是提交者id,右上角数字是提交次数），点击按钮弹出该成员从上次上线到本次上线间的提交历史，如下图所示：
+     
  <img src="docs/imgs/commitlog.png" width=60%  />
 
      
@@ -238,7 +239,8 @@ export default {
    
  <img src="docs/imgs/dodeploy.png" width=60%  />      
       
-  	部署完成后，会弹出一个层，表示部署完成并且询问是否锁定部署机器，如果锁定则这个项目的这台机器不能再部署，只有本次部署的人解锁以后才可以继续部署:
+
+部署完成后，会弹出一个层，表示部署完成并且询问是否锁定部署机器，如果锁定则这个项目的这台机器不能再部署，只有本次部署的人解锁以后才可以继续部署:
   	
  <img src="docs/imgs/deploydone.png" width=60%  />      
  
@@ -248,7 +250,7 @@ export default {
   	
 
 <span id="morelang"></span>
-##支持多语言构建部署：
+## 支持多语言构建部署：
       
  <p>
 这个项目本来是为了前端构建部署而设计的，但是随着系统的日益完善，我们也支持其他语言如   java项目的构建和部署，接下来我们来看看如何部署一个通过maven管理的javaweb项目（我随便找了个javaweb项目fork出来：https://github.com/luyongfugx/maventest.git）。
@@ -303,7 +305,7 @@ http://localhost:4000/string
 	
 		
 <span id="advanced"></span>
-##编写插件支持高级功能
+## 编写插件支持高级功能
 
 部署系统还提供了2种hook,方便我们在构建，部署前后编程做一些特殊的工作（比如我们部署一个web服务的过程中，如果部署时间比较长，为了避免用户访问到正在部署的机器，需要先从nginx中摘掉，等部署完后再把他添加到nginx列表中），在这我们举个例子来做一个示范。
 1.首先我们需要知道如何调试部署平台程序
