@@ -290,9 +290,9 @@ const DoDeploy = React.createClass({
         }}>构建完成，部署上线：</div>
         <div className="row-width">
           <span >选择要部署的目标机器：</span>
-          <Table rowKey="id" rowSelection={deployMacSelection} columns={deployMachineColumns} dataSource={this.props.machineList} pagination={{
+          <Table rowKey="id" rowSelection={deployMacSelection} columns={deployMachineColumns} dataSource={this.props.machineList} pagination={
             false
-          }}/>
+          }/>
         </div>
 
         <div className="row-width" style={{
