@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "node www/development.js",
     "frontdev": "atool-build -o www/static/app/ -w --devtool cheap-module-source-map --no-compress",
-    "build": "atool-build -o ../www/static/app/ && babel --presets es2015-loose,stage-1 --plugins transform-runtime src/ --out-dir app/ --retain-lines",
+    "build": "atool-build -o www/static/app/ && babel --presets es2015-loose,stage-1 --plugins transform-runtime src/ --out-dir app/ --retain-lines",
     "start": "node www/production.js"
   },
   "dependencies": {
