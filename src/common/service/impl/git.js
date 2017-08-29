@@ -100,7 +100,10 @@ GitClient.prototype = {
         console.log(cmdStr);
         let cmdDir = params[1];
         let self = this;
-        exec(cmdStr, function(err, data, stderr) {
+        exec(cmdStr, {
+            cwd: cvsDir,
+            maxBuffer: 100 * 1024 * 1024
+        }, function(err, data, stderr) {
             //  self.delGitDir(cmdDir,function(){
             console.log('git checkout stderr: ', stderr);
             if (err) {
@@ -108,7 +111,8 @@ GitClient.prototype = {
             } else {
                 if (isBranch) {
                     exec('git checkout ' + branch, {
-                        cwd: cvsDir
+                        cwd: cvsDir,
+                        maxBuffer: 100 * 1024 * 1024
                     }, function(err2, data2, stderr2) {
                         if (err2) {
                             cb(err2);
