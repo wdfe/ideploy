@@ -10,7 +10,7 @@ if [ "$4" -eq "2" ]; then
 fi
 
 if [ ! -d $modulesPath ]; then
-  mkdir $modulesPath
+  mkdir -p $modulesPath
 fi
 
 cp -f $projectPath/package.json $modulesPath
